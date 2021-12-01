@@ -1,3 +1,4 @@
-## there are some code explorations
+## There are some advents of code
 ##### Advent of Code 2019
-##### Yandex Data School
+##### Advent of Code 2020
+##### Advent of Code 2021
