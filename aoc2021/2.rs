@@ -10,7 +10,7 @@ where P: AsRef<Path>, {
 
 
 fn main(){
-    let [mut forward,mut depth] = [0,0]; 
+    let [mut horiz,mut depth, mut aim] = [0,0,0]; 
     if let Ok(lines) = read_lines("2.txt"){
         for line in lines{
             if let Ok(s) = line{
@@ -18,14 +18,17 @@ fn main(){
                 let c = comm.next().unwrap();
                 let d:u32 = comm.next().unwrap().parse::<u32>().unwrap();
                 match c {
-                    "forward" => forward += d,
-                    "down" => depth += d,
-                    "up" => depth -= d,
+                    "forward" => {
+                        horiz += d;
+                        depth += aim*d;
+                    },
+                    "down" => aim += d,
+                    "up" => aim -= d,
                     _=> panic!(),
                 };
 //                println!("{:?}--{:?}",c,d);
             }
         }
     }
-    println!("{}",forward*depth);
+    println!("{}",horiz*depth);
 }
