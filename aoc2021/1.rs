@@ -12,9 +12,7 @@ where P: AsRef<Path>, {
 fn main(){
     let mut count = 0;
     if let Ok(lines) = read_lines("./1.txt"){
-        let mut a = 10000;
-        let mut b = 10000;
-        let mut c = 10000;
+        let [mut a, mut b, mut c] = [10000; 3];
         for line in lines{
             if let Ok(s) = line{
                 let i = s.parse().unwrap();
